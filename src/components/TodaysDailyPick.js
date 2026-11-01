@@ -6,6 +6,11 @@ import affiliateLinks from "../data/affiliateLinks";
 export default function TodaysDailyPick() {
     const product = affiliateProducts.dailyPick;
 
+    // Use individual product link first, otherwise use store affiliate link
+    const storeLink =
+        product.affiliateUrl ||
+        affiliateLinks[product.platform];
+
     const discount = Math.round(
         ((product.originalPrice - product.price) /
             product.originalPrice) * 100
@@ -124,15 +129,15 @@ export default function TodaysDailyPick() {
                             {discount}% OFF
                         </span>
 
-                        {product.affiliateUrl ? (
+                        {storeLink ? (
                             <div>
                                 <a
-                                    href={product.affiliateUrl}
+                                    href={storeLink}
                                     target="_blank"
                                     rel="noopener noreferrer sponsored"
                                     style={styles.button}
                                 >
-                                    Check Product →
+                                    Shop on {product.platform} →
                                 </a>
                             </div>
                         ) : (
