@@ -11,6 +11,9 @@ import Footer from "./components/Footer";
 import { CartProvider } from "./CartContext";
 import { WishlistProvider } from "./WishlistContext";
 import OffersSlider from "./components/OffersSlider";
+import TodaysDailyPick from "./components/TodaysDailyPick";
+import TodaysBestDeals from "./components/TodaysBestDeals";
+import TrendingFinds from "./components/TrendingFinds";
 
 function App() {
   return (
@@ -19,6 +22,12 @@ function App() {
     <div className="app">
       <Header />
 <Hero />
+ 
+  <TodaysDailyPick />
+ <TodaysBestDeals />
+ <TrendingFinds />
+
+
 <Categories />
 <OffersSlider />
 <ProductSection />
